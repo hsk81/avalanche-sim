@@ -1,0 +1,10 @@
+language: python
+python:
+  - "3.9"
+before_script:
+  - curl -L https://github.com/kward/shunit2/archive/v2.1.8.tar.gz | tar xz
+  - echo -e "#! /bin/bash\n$(tail -n +2 ./shunit2-2.1.8/shunit2)" > ./shunit2-2.1.8/shunit2
+install:
+  - pip install -r requirements.txt
+script:
+  - ./test.sh test
