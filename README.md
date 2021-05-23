@@ -45,10 +45,9 @@ $ source bin/activate ## activate virtual Python environment
 ```
 ```
 usage: avalanche.py [-h] [-p POPULATION]
-  [-d {cauchy,uniform,equal,pareto-1,...}]
-  [-R MAX_ROUND] [-s MIN_SAMPLE] [-S MAX_SAMPLE]
-  [-q QUORUM_RATE] [-e ERROR_SHARE]
-  [--random-seed RANDOM_SEED]
+  [-d {cauchy,equal,exponential,normal,uniform,pareto-1,..,gamma-1,..,total-weights,weights}]
+  [-x DISTRIBUTION_EXPONENT] [-R MAX_ROUND] [-s MIN_SAMPLE] [-S MAX_SAMPLE] [-q QUORUM_RATE]
+  [-b1 BETA_1] [-e ERROR_SHARE] [--random-seed RANDOM_SEED] [--debug-level {0,1,2,3}]
 
 Produces the Avalanche simulation matrix [max_round x max_sample]
 
@@ -56,8 +55,10 @@ optional arguments:
   -h, --help            show this help message and exit
   -p POPULATION, --population POPULATION
                         population size (default: 10000)
-  -d {...}, --distribution {cauchy,uniform,equal,pareto-1,...}
+  -d {cauchy,equal,exponential,normal,uniform,pareto-1,..,gamma-1,..,total-weights,weights}
                         stake distribution (default: uniform)
+  -x DISTRIBUTION_EXPONENT, --distribution-exponent DISTRIBUTION_EXPONENT
+                        stake distribution exponent (default: 1.0)
   -R MAX_ROUND, --max-round MAX_ROUND
                         maximum number of rounds (default: 20)
   -s MIN_SAMPLE, --min-sample MIN_SAMPLE
@@ -65,11 +66,15 @@ optional arguments:
   -S MAX_SAMPLE, --max-sample MAX_SAMPLE
                         maximum sample size (default: 20)
   -q QUORUM_RATE, --quorum-rate QUORUM_RATE
-                        quorum rate (default: 0.7)
+                        quorum rate in [0.0, 1.0] (default: 0.7)
+  -b1 BETA_1, --beta-1 BETA_1
+                        virtuous commit threshold (default: 15)
   -e ERROR_SHARE, --error-share ERROR_SHARE
-                        error share in [0.0, 0.5) (default: 0.0)
+                        error share in [0.0, 0.5] (default: 0.0)
   --random-seed RANDOM_SEED
                         random generator seed (default: None)
+  --debug-level {0,1,2,3}
+                        debug level (default: 0)
 ```
 
 ## Boxplot
@@ -131,7 +136,7 @@ optional arguments:
 ```
 
 ```
-# {"population": 10000, "distribution": "uniform", "max_round": 20, "min_sample": 1, "max_sample": 20, "quorum_rate": 0.7, "error_share": 0.0, "random_seed": null}
+# {"population": 10000, "distribution": "uniform", "distribution_exponent": 1.0, "max_round": 20, "min_sample": 1, "max_sample": 20, "quorum_rate": 0.7, "beta_1": 15, "error_share": 0.0, "random_seed": null, "debug_level": 0}
 4.996999999999999775e-01 5.006000000000000449e-01 ... 5.038000000000000256e-01 5.023999999999999577e-01
 5.069000000000000172e-01 2.523000000000000242e-01 ... 3.209999999999999659e-02 4.170000000000000095e-02
 ...
@@ -156,7 +161,7 @@ optional arguments:
 ```
 
 ```
-# {"population": 10000, "distribution": "uniform", "max_round": 20, "min_sample": 20, "max_sample": 20, "quorum_rate": 0.7, "error_share": 0.0, "random_seed": null}
+# {"population": 10000, "distribution": "uniform", "distribution_exponent": 1.0, "max_round": 20, "min_sample": 20, "max_sample": 20, "quorum_rate": 0.7, "beta_1": 15, "error_share": 0.0, "random_seed": null, "debug_level": 0}
 0.000000000000000000e+00 0.000000000000000000e+00 ... 0.000000000000000000e+00 5.011999999999999789e-01
 0.000000000000000000e+00 0.000000000000000000e+00 ... 0.000000000000000000e+00 4.000000000000000083e-02
 ...
