@@ -111,7 +111,8 @@ def weights(p_size: int, distribution: str) -> array:
     Returns various weight distributions (ie validator stakes).
     """
     def norm(ws):
-        return numpy.sort(ws) / ws.sum()
+        ws_exp = ws**args.distribution_exponent
+        return numpy.sort(ws_exp) / ws_exp.sum()
     if distribution == 'cauchy':
         return norm(abs(prg.standard_cauchy(p_size)))
     elif distribution == 'exponential':
@@ -146,6 +147,9 @@ if __name__ == '__main__':
         'gamma-3', 'gamma-2', 'gamma-1', 'gamma-0.5'],
         type=str, help='stake distribution'
         ' (default: %(default)s)', default='uniform')
+    parser.add_argument('-x', '--distribution-exponent',
+        type=float, help='stake distribution exponent'
+        ' (default: %(default)s)', default=1.0)
     parser.add_argument('-R', '--max-round',
         type=int, help='maximum number of rounds'
         ' (default: %(default)s)', default=20)
