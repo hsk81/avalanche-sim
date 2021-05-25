@@ -2,12 +2,8 @@
 from matplotlib import pyplot as pp
 from typing import Tuple, Dict
 
-from numpy import arange
 from numpy import array
 from numpy import average as avg
-from numpy import ceil
-from numpy import floor
-from numpy import sqrt
 from numpy import std
 from numpy import maximum
 from numpy import minimum

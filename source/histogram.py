@@ -4,9 +4,6 @@ from typing import Any, List, Dict, Tuple
 
 from numpy import arange
 from numpy import array
-from numpy import ceil
-from numpy import floor
-from numpy import sqrt
 from numpy import maximum
 from numpy import minimum
 

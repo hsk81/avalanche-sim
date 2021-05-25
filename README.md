@@ -182,12 +182,7 @@ optional arguments:
 ### 2a) 1'000 simulation runs over 10'000 nodes & sample sizes in [1, 20]:
 
 ```sh
-[avalanche] $ time ./avalanche.sh 1000 > /tmp/P1E4.R01:20.S01:20.Q70.E00.txt
-```
-```sh
-real    20m0.000s
-user    20m0.000s
-sys     20m0.000s
+[avalanche] $ echo | ./avalanche.sh 1000 > /tmp/P1E4.R01:20.S01:20.Q70.E00.txt
 ```
 
 ..where `avalanche.sh` is a wrapper around `avalanche.py` iterating over the latter by the provided *number of simulations*. Otherwise, it accepts the same arguments as the wrapped script.
@@ -205,12 +200,7 @@ sys     20m0.000s
 ### 2b) 1'000 simulation runs over 10'000 nodes & sample size of 20:
 
 ```sh
-[avalanche] $ time ./avalanche.sh 1000 -s20 > /tmp/P1E4.R01:20.S20:20.Q70.E00.txt
-```
-```sh
-real    1m0.000s
-user    1m0.000s
-sys     1m0.000s
+[avalanche] $ echo | ./avalanche.sh 1000 -s20 > /tmp/P1E4.R01:20.S20:20.Q70.E00.txt
 ```
 
 ..where `avalanche.sh` is a wrapper around `avalanche.py` iterating over the latter by the provided *number of simulations*. Otherwise, it accepts the same arguments as the wrapped script.
