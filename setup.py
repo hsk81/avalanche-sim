@@ -8,7 +8,7 @@ from setuptools import setup, find_packages
 
 setup (
     name='avalanche-sim',
-    version='1.3.1',
+    version='1.3.2',
     description='Avalanche consensus simulator',
     author='Hasan Karahan',
     author_email='avalanche@blackhan.com',
