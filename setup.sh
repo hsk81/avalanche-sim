@@ -10,12 +10,12 @@ function setup_env () {
         if $(hash git) ; then
             git submodule update --init
         fi
-        if [ $PY3 ] ; then
-            virtualenv . --prompt="[$1] " --python=/usr/bin/python3
-        elif [ $PY2 ] ; then
-            virtualenv . --prompt="[$1] " --python=/usr/bin/python2
+        if [ $PY -eq 3 ] ; then
+            virtualenv . --prompt="$1" --python=/usr/bin/python3 --system-site-packages
+        elif [ $PY -eq 2 ] ; then
+            virtualenv . --prompt="$1" --python=/usr/bin/python2 --system-site-packages
         else
-            virtualenv . --prompt="[$1] " --python=/usr/bin/python
+            virtualenv . --prompt="$1" --python=/usr/bin/python  --system-site-packages
         fi
     fi
 }
