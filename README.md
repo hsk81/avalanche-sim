@@ -1,4 +1,4 @@
-[![Build Status](https://travis-ci.com/hsk81/avalanche-sim.svg?branch=master)](https://travis-ci.com/hsk81/avalanche-sim)
+[![Build Status](https://travis-ci.com/hsk81/avalanche-sim.svg?branch=main)](https://travis-ci.com/hsk81/avalanche-sim)
 
 # Avalanche Sim
 
@@ -32,7 +32,7 @@ $ ./setup.sh ## setup virtual Python environment
 $ source bin/activate ## activate virtual Python environment
 ```
 ```sh
-[avalanche] $ ./setup.py install ## setup Python dependencies
+[avalanche] $ pip install . ## Python dependencies
 ```
 ```sh
 [avalanche] $ cd ./source ## change directory to ./source
